@@ -194,11 +194,11 @@ public class GamePanel extends GLJPanel implements GLEventListener{
         gl.glLoadIdentity();
 		
 		//Places camera & lightning
-		Player player = game.getPlayer();
-		Sun sun = game.getSun();
-		Vector3 head = player.getHeadPos();
-		Vector3 focus = player.getFocus();
-		Vector3 diff = Vector3.difference(focus, head);
+		final Player player = game.getPlayer();
+		final Sun sun = game.getSun();
+		final Vector3 head = player.getHeadPos();
+		final Vector3 focus = player.getFocus();
+		final Vector3 diff = Vector3.difference(focus, head);
 		if (firstPerson)
 			diff.scale(0);
 		else
@@ -234,7 +234,7 @@ public class GamePanel extends GLJPanel implements GLEventListener{
 		gl.glPopMatrix();
 		long t = System.currentTimeMillis();
 		gl.glEnable(GL2.GL_LIGHTING);
-		world.render(gl);
+		world.render(gl, head);
 		gl.glDisable(GL2.GL_LIGHTING);
 		System.out.println("Blocks render time: " + (System.currentTimeMillis() - t));
 		//Axes

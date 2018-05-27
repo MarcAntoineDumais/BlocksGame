@@ -15,7 +15,6 @@ public class Game implements Runnable {
 	private World world;
 	private Sun sun;
 
-
 	private Game() {}
 	
 	public static Game getInstance() {
@@ -69,7 +68,6 @@ public class Game implements Runnable {
 		return world.isObstructed(pos);
 	}
 	
-	
 	public void play() {
 		paused = false;
 	}
@@ -93,5 +91,4 @@ public class Game implements Runnable {
 	public Sun getSun() {
 		return sun;
 	}
-
 }
