@@ -38,10 +38,24 @@ public class World {
                 }
     }
 
-    public void render(GL2 gl) {
+    public void render(final GL2 gl, final Vector3 viewPos) {
         for (Chunk c : displayLists) {
-            if (!c.isEmpty())
-                gl.glCallList(c.getDisplayListIndex());
+            if (c.isEmpty())
+                continue;
+
+            final int displayListIndex = c.getDisplayLists();
+            if (viewPos.x < c.getBoundXPos())
+                gl.glCallList(displayListIndex);
+            if (viewPos.x > c.getBoundXNeg())
+                gl.glCallList(displayListIndex + 1);
+            if (viewPos.y < c.getBoundYPos())
+                gl.glCallList(displayListIndex + 2);
+            if (viewPos.y > c.getBoundYNeg())
+                gl.glCallList(displayListIndex + 3);
+            if (viewPos.z < c.getBoundZPos())
+                gl.glCallList(displayListIndex + 4);
+            if (viewPos.z > c.getBoundZNeg())
+                gl.glCallList(displayListIndex + 5);
         }
     }
 

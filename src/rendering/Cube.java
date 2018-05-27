@@ -7,26 +7,26 @@ public class Cube {
 		gl.glPushMatrix();
 		gl.glTranslated(pos.x, pos.y, pos.z);
 		gl.glBegin(GL2.GL_QUADS);
-		top(gl);
-		bottom(gl);
-		left(gl);
-		right(gl);
-		front(gl);
-		back(gl);
+		yPos(gl);
+		yNeg(gl);
+		xNeg(gl);
+		xPos(gl);
+		zNeg(gl);
+		zPos(gl);
 		gl.glEnd();
 		gl.glPopMatrix();
 	}
 	
-	public static void renderTop(Vector3 pos, GL2 gl) {
+	public static void renderYPos(Vector3 pos, GL2 gl) {
 		gl.glPushMatrix();
 		gl.glTranslated(pos.x, pos.y, pos.z);
 		gl.glBegin(GL2.GL_QUADS);
-		top(gl);
+		yPos(gl);
 		gl.glEnd();
 		gl.glPopMatrix();
 	}
 	
-	private static void top(GL2 gl) {
+	private static void yPos(GL2 gl) {
 		gl.glNormal3d(0, 1, 0);
 		gl.glTexCoord2d(0, 1);
 		gl.glVertex3d(-0.5,  0.5,  0.5);
@@ -38,16 +38,16 @@ public class Cube {
 		gl.glVertex3d(-0.5,  0.5,  -0.5);
 	}
 	
-	public static void renderBottom(Vector3 pos, GL2 gl) {
+	public static void renderYNeg(Vector3 pos, GL2 gl) {
 		gl.glPushMatrix();
 		gl.glTranslated(pos.x, pos.y, pos.z);
 		gl.glBegin(GL2.GL_QUADS);
-		bottom(gl);
+		yNeg(gl);
 		gl.glEnd();
 		gl.glPopMatrix();
 	}
 	
-	private static void bottom(GL2 gl) {
+	private static void yNeg(GL2 gl) {
 		gl.glNormal3d(0, -1, 0);
 		gl.glTexCoord2d(0, 1);
 		gl.glVertex3d(-0.5,  -0.5,  0.5);
@@ -59,16 +59,16 @@ public class Cube {
 		gl.glVertex3d(-0.5,  -0.5,  -0.5);
 	}
 	
-	public static void renderLeft(Vector3 pos, GL2 gl) {
+	public static void renderXNeg(Vector3 pos, GL2 gl) {
 		gl.glPushMatrix();
 		gl.glTranslated(pos.x, pos.y, pos.z);
 		gl.glBegin(GL2.GL_QUADS);
-		left(gl);
+		xNeg(gl);
 		gl.glEnd();
 		gl.glPopMatrix();
 	}
 	
-	private static void left(GL2 gl) {
+	private static void xNeg(GL2 gl) {
 		gl.glNormal3d(-1, 0, 0);
 		gl.glTexCoord2d(0, 1);
 		gl.glVertex3d(-0.5,  0.5,  0.5);
@@ -80,16 +80,16 @@ public class Cube {
 		gl.glVertex3d(-0.5,  -0.5,  0.5);
 	}
 	
-	public static void renderRight(Vector3 pos, GL2 gl) {
+	public static void renderXPos(Vector3 pos, GL2 gl) {
 		gl.glPushMatrix();
 		gl.glTranslated(pos.x, pos.y, pos.z);
 		gl.glBegin(GL2.GL_QUADS);
-		right(gl);
+		xPos(gl);
 		gl.glEnd();
 		gl.glPopMatrix();
 	}
 	
-	private static void right(GL2 gl) {
+	private static void xPos(GL2 gl) {
 		gl.glNormal3d(1, 0, 0);
 		gl.glTexCoord2d(0, 1);
 		gl.glVertex3d(0.5,  0.5,  0.5);
@@ -101,16 +101,16 @@ public class Cube {
 		gl.glVertex3d(0.5,  -0.5,  0.5);
 	}
 	
-	public static void renderFront(Vector3 pos, GL2 gl) {
+	public static void renderZNeg(Vector3 pos, GL2 gl) {
 		gl.glPushMatrix();
 		gl.glTranslated(pos.x, pos.y, pos.z);
 		gl.glBegin(GL2.GL_QUADS);
-		front(gl);
+		zNeg(gl);
 		gl.glEnd();
 		gl.glPopMatrix();
 	}
 	
-	private static void front(GL2 gl) {
+	private static void zNeg(GL2 gl) {
 		gl.glNormal3d(0, 0, -1);
 		gl.glTexCoord2d(0, 1);
 		gl.glVertex3d(-0.5,  0.5,  -0.5);
@@ -122,16 +122,16 @@ public class Cube {
 		gl.glVertex3d(-0.5,  -0.5,  -0.5);
 	}
 	
-	public static void renderBack(Vector3 pos, GL2 gl) {
+	public static void renderZPos(Vector3 pos, GL2 gl) {
 		gl.glPushMatrix();
 		gl.glTranslated(pos.x, pos.y, pos.z);
 		gl.glBegin(GL2.GL_QUADS);
-		back(gl);
+		zPos(gl);
 		gl.glEnd();
 		gl.glPopMatrix();
 	}
 	
-	private static void back(GL2 gl) {
+	private static void zPos(GL2 gl) {
 		gl.glNormal3d(0, 0, 1);
 		gl.glTexCoord2d(0, 1);
 		gl.glVertex3d(-0.5,  0.5,  0.5);
@@ -147,10 +147,10 @@ public class Cube {
 		gl.glPushMatrix();
 		gl.glTranslated(pos.x, pos.y, pos.z);
 		gl.glBegin(GL2.GL_QUADS);
-		front(gl);
-		back(gl);
-		left(gl);
-		right(gl);
+		zNeg(gl);
+		zPos(gl);
+		xNeg(gl);
+		xPos(gl);
 		gl.glEnd();
 		gl.glPopMatrix();
 	}
